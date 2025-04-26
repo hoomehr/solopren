@@ -1,5 +1,4 @@
 // Configuration for Gemini AI
-const API_KEY = 'YOUR_GEMINI_API_KEY'; // Replace with your actual API key when in production
 let genAI, model, chatSession;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,77 +21,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Form submission (just prevent default for now since no backend)
+  // Form submission with backend integration
   const form = document.querySelector('.signup-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      alert('Thanks for your interest! This would submit to a backend in production.');
-      form.reset();
+      
+      const nameInput = form.querySelector('input[type="text"]');
+      const emailInput = form.querySelector('input[type="email"]');
+      
+      if (nameInput && emailInput) {
+        try {
+          // In a real app, this would be sent to the backend
+          // const response = await fetch('/api/users/signup', {
+          //   method: 'POST',
+          //   headers: { 'Content-Type': 'application/json' },
+          //   body: JSON.stringify({ name: nameInput.value, email: emailInput.value })
+          // });
+          
+          // For now, just show success message
+          alert('Thanks for your interest! You would be registered in a production environment.');
+          form.reset();
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          alert('There was an error submitting the form. Please try again.');
+        }
+      }
     });
   }
-
-  // Course filtering
-  setupCourseFiltering();
-
-  // Initialize pagination
-  setupPagination();
   
   // Initialize AI Chat
   setupAIChat();
 });
 
-// Course filtering functionality
-function setupCourseFiltering() {
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const courseCards = document.querySelectorAll('.course-card');
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Remove active class from all buttons
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      
-      // Add active class to clicked button
-      button.classList.add('active');
-      
-      // Get filter value
-      const filterValue = button.getAttribute('data-filter');
-      
-      // Filter course cards
-      courseCards.forEach(card => {
-        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-          card.style.display = 'flex';
-          // Add animation
-          card.style.animation = 'fadeIn 0.5s';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
+// Add active class to current nav link based on URL
+function setActiveNavLink() {
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-links a');
+  
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || 
+        (currentPath === '/' && href === '/') ||
+        (href !== '/' && currentPath.includes(href))) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
   });
 }
 
-// Pagination functionality
-function setupPagination() {
-  const pageNumbers = document.querySelectorAll('.page-number');
+// Handle featured courses preview on homepage
+function setupFeaturedCourses() {
+  const featuredCoursesSection = document.getElementById('featured-courses');
+  if (!featuredCoursesSection) return;
   
-  pageNumbers.forEach(page => {
-    page.addEventListener('click', () => {
-      // Remove active class from all page numbers
-      pageNumbers.forEach(p => p.classList.remove('active'));
-      
-      // Add active class to clicked page number
-      page.classList.add('active');
-      
-      // In a real application, this would load different course data
-      // For now, we'll just show an alert
-      console.log(`Page ${page.textContent} clicked`);
-      
-      // Scroll back to the top of the courses section
-      document.querySelector('#courses').scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+  // In a full implementation, this would fetch featured courses from the API
+  // For now, we're using the static HTML
+  
+  // Add click event to the "View Course" buttons
+  const viewButtons = document.querySelectorAll('.course-preview-card .btn-secondary');
+  viewButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      // This is handled by the href attribute, but we could add analytics here
+      console.log('Course preview clicked');
     });
   });
 }
@@ -104,6 +96,10 @@ function setupAIChat() {
   const chatMessages = document.getElementById('chatMessages');
   const userInput = document.getElementById('userInput');
   const sendBtn = document.getElementById('sendBtn');
+
+  if (!chatToggle || !chatWindow || !chatMessages || !userInput || !sendBtn) {
+    return; // Exit if elements don't exist
+  }
 
   // Toggle chat window
   chatToggle.addEventListener('click', () => {
@@ -133,7 +129,7 @@ function setupAIChat() {
   });
 
   // Function to send message
-  function sendMessage() {
+  async function sendMessage() {
     const message = userInput.value.trim();
     if (message === '') return;
 
@@ -141,11 +137,30 @@ function setupAIChat() {
     addMessageToChat('user', message);
     userInput.value = '';
 
-    // Process with Gemini AI or fallback
+    try {
+      // Try to use the backend API first
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message })
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        addMessageToChat('bot', data.response);
+        return;
+      }
+    } catch (error) {
+      console.error('Error using backend chat API:', error);
+    }
+    
+    // Fallback to client-side Gemini if available
     if (chatSession) {
       processWithGemini(message);
     } else {
-      // Fallback responses if Gemini is not available
+      // Fallback responses if all else fails
       setTimeout(() => {
         const responses = [
           "I'm here to help you with your solopreneur journey!",
@@ -225,3 +240,7 @@ document.head.insertAdjacentHTML('beforeend', `
     }
   </style>
 `);
+
+// Call initialization functions
+setActiveNavLink();
+setupFeaturedCourses();

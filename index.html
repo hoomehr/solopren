@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solopren - Empower Your Solo Journey</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,11 +15,11 @@
         <nav>
             <div class="logo">Solopren</div>
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#courses">Courses</a>
+                <a href="/" class="active">Home</a>
+                <a href="/courses">Courses</a>
                 <a href="#stories">Stories</a>
+                <a href="#features">Features</a>
                 <a href="#signup">Join Now</a>
-                <a href="#about">About</a>
             </div>
         </nav>
     </header>
@@ -76,102 +76,33 @@
         </div>
     </section>
 
-    <section id="courses">
+    <section id="featured-courses">
         <div class="container">
-            <div class="courses-header">
-                <h2>Explore Our Courses</h2>
-                <div class="courses-filter">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="business">Business</button>
-                    <button class="filter-btn" data-filter="tech">Technology</button>
-                    <button class="filter-btn" data-filter="marketing">Marketing</button>
-                    <button class="filter-btn" data-filter="creative">Creative</button>
-                </div>
-            </div>
-            <div class="courses-gallery">
-                <div class="course-card" data-category="business">
+            <h2>Featured Courses</h2>
+            <div class="featured-courses-preview">
+                <div class="course-preview-card">
                     <div class="course-img">
                         <img src="https://source.unsplash.com/random/600x400/?business" alt="Business Course">
                     </div>
                     <div class="course-content">
                         <h3>Solopreneur Business Foundations</h3>
                         <p>Learn how to create a solid foundation for your solo business venture.</p>
-                        <div class="course-details">
-                            <span class="course-level">Beginner</span>
-                            <span class="course-price">$49</span>
-                        </div>
+                        <a href="/courses" class="btn-secondary">View Course</a>
                     </div>
                 </div>
-                <div class="course-card" data-category="tech">
-                    <div class="course-img">
-                        <img src="https://source.unsplash.com/random/600x400/?coding" alt="Tech Course">
-                    </div>
-                    <div class="course-content">
-                        <h3>Building Your Online Presence</h3>
-                        <p>Create a professional online presence with minimal technical knowledge.</p>
-                        <div class="course-details">
-                            <span class="course-level">Intermediate</span>
-                            <span class="course-price">$79</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="course-card" data-category="marketing">
+                <div class="course-preview-card">
                     <div class="course-img">
                         <img src="https://source.unsplash.com/random/600x400/?marketing" alt="Marketing Course">
                     </div>
                     <div class="course-content">
                         <h3>Digital Marketing Essentials</h3>
                         <p>Master the fundamentals of digital marketing to grow your solo business.</p>
-                        <div class="course-details">
-                            <span class="course-level">Beginner</span>
-                            <span class="course-price">$59</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="course-card" data-category="creative">
-                    <div class="course-img">
-                        <img src="https://source.unsplash.com/random/600x400/?design" alt="Creative Course">
-                    </div>
-                    <div class="course-content">
-                        <h3>Creative Content Production</h3>
-                        <p>Learn to create engaging content that showcases your unique perspective.</p>
-                        <div class="course-details">
-                            <span class="course-level">Advanced</span>
-                            <span class="course-price">$89</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="course-card" data-category="business">
-                    <div class="course-img">
-                        <img src="https://source.unsplash.com/random/600x400/?finance" alt="Finance Course">
-                    </div>
-                    <div class="course-content">
-                        <h3>Financial Management for Solopreneurs</h3>
-                        <p>Take control of your finances and maximize profitability.</p>
-                        <div class="course-details">
-                            <span class="course-level">Intermediate</span>
-                            <span class="course-price">$69</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="course-card" data-category="tech">
-                    <div class="course-img">
-                        <img src="https://source.unsplash.com/random/600x400/?automation" alt="Automation Course">
-                    </div>
-                    <div class="course-content">
-                        <h3>Automation for Solo Businesses</h3>
-                        <p>Use technology to automate tasks and scale your business efficiently.</p>
-                        <div class="course-details">
-                            <span class="course-level">Advanced</span>
-                            <span class="course-price">$99</span>
-                        </div>
+                        <a href="/courses" class="btn-secondary">View Course</a>
                     </div>
                 </div>
             </div>
-            <div class="pagination">
-                <div class="page-number active">1</div>
-                <div class="page-number">2</div>
-                <div class="page-number">3</div>
+            <div class="courses-cta">
+                <a href="/courses" class="btn-primary">Browse All Courses</a>
             </div>
         </div>
     </section>
@@ -249,6 +180,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@0.1.2"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

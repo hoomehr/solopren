@@ -97,7 +97,7 @@ nav {
     transition: all 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, .nav-links a.active {
     color: var(--color-accent);
     text-shadow: 0 0 5px rgba(48, 112, 255, 0.2);
 }
@@ -352,10 +352,87 @@ footer {
     opacity: 0.8;
 }
 
-/* Courses Section */
+/* Featured Courses Section */
+#featured-courses {
+    padding: 5rem 0;
+    background-color: var(--color-light);
+}
+
+.featured-courses-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.course-preview-card {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-preview-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--glow);
+}
+
+.course-preview-card .course-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.course-preview-card .course-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.course-preview-card:hover .course-img img {
+    transform: scale(1.1);
+}
+
+.course-preview-card .course-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-preview-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.course-preview-card p {
+    margin-bottom: 1.5rem;
+}
+
+.courses-cta {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+/* Courses Page Specific Styles */
 #courses {
     padding: 5rem 0;
     background-color: var(--color-light);
+}
+
+#courses-hero {
+    padding: 8rem 0 5rem;
+    background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 100%), url('https://source.unsplash.com/random/1600x800/?entrepreneur');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: var(--color-light);
 }
 
 .courses-header {
@@ -616,6 +693,40 @@ footer {
 
 .send-btn:hover {
     background-color: #2060e0;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    width: 100%;
+}
+
+.loading-spinner::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 1rem auto;
+    border-radius: 50%;
+    border: 3px solid var(--color-medium-grey);
+    border-top-color: var(--color-accent);
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
+/* No Courses Message */
+.no-courses {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    width: 100%;
 }
 
 /* Responsive Design */
