@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Solopren</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Solopren</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/courses.html" class="active">Courses</a>
+                <a href="/#stories">Stories</a>
+                <a href="/#features">Features</a>
+                <a href="/#signup">Join Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="courses-hero">
+        <div class="container">
+            <h1>Expand Your Skills</h1>
+            <p class="tagline">Browse our collection of expert-led courses designed specifically for solopreneurs.</p>
+        </div>
+    </section>
+
+    <section id="courses">
+        <div class="container">
+            <div class="courses-header">
+                <h2>Explore Our Courses</h2>
+                <div class="courses-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="business">Business</button>
+                    <button class="filter-btn" data-filter="tech">Technology</button>
+                    <button class="filter-btn" data-filter="marketing">Marketing</button>
+                    <button class="filter-btn" data-filter="creative">Creative</button>
+                </div>
+            </div>
+            <div class="courses-gallery" id="coursesGallery">
+                <!-- Course cards will be loaded dynamically from the server -->
+                <div class="loading-spinner">Loading courses...</div>
+            </div>
+            <div class="pagination" id="coursesPagination">
+                <!-- Pagination will be generated dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Solopren</div>
+                <div class="footer-links">
+                    <a href="/#about">About</a>
+                    <a href="/terms.html">Terms</a>
+                    <a href="/privacy.html">Privacy Policy</a>
+                </div>
+                <p class="copyright">© 2025 Solopren. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="ai-assistant">
+        <div class="chat-toggle" id="chatToggle">💬</div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <img src="https://source.unsplash.com/random/100x100/?robot" alt="AI Assistant">
+                <h4>Solopren AI Assistant</h4>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hi there! I'm your Solopren AI assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your question...">
+                <button class="send-btn" id="sendBtn">→</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@0.1.2"></script>
+    <script src="js/script.js"></script>
+    <script src="js/courses.js"></script>
+</body>
+</html>
