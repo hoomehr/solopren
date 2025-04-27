@@ -24,7 +24,7 @@
         </nav>
     </header>
 
-    <section id="hero">
+    <section id="hero" style="background-image: url('images/My project.png'); background-size: cover; background-position: center;">
         <div class="container">
             <h1>Empower Your Solo Journey</h1>
             <p class="tagline">Resources, tools, and community support to help you succeed as a solopreneur.</p>
@@ -36,9 +36,9 @@
         <div class="container">
             <h2>Success Stories</h2>
             <div class="stories-grid">
-                <div class="story-card">
+                <a href="/story-detail" class="story-card">
                     <div class="story-img">
-                        <img src="https://source.unsplash.com/random/300x200/?entrepreneur" alt="Entrepreneur">
+                        <img src="images/My project.png" alt="Entrepreneur">
                     </div>
                     <h3>Sarah's Design Studio</h3>
                     <p class="subtitle">From side-hustle to six figures</p>
@@ -47,10 +47,10 @@
                         <span class="tag">Creative</span>
                         <span class="tag">Growth</span>
                     </div>
-                </div>
-                <div class="story-card">
+                </a>
+                <a href="/story-detail" class="story-card">
                     <div class="story-img">
-                        <img src="https://source.unsplash.com/random/300x200/?developer" alt="Developer">
+                        <img src="images/Untitled (1).png" alt="Developer">
                     </div>
                     <h3>Mark's Dev Journey</h3>
                     <p class="subtitle">Building software solutions solo</p>
@@ -59,10 +59,10 @@
                         <span class="tag">SaaS</span>
                         <span class="tag">Coding</span>
                     </div>
-                </div>
-                <div class="story-card">
+                </a>
+                <a href="/story-detail" class="story-card">
                     <div class="story-img">
-                        <img src="https://source.unsplash.com/random/300x200/?consultant" alt="Consultant">
+                        <img src="images/Untitled.jpeg" alt="Consultant">
                     </div>
                     <h3>Elena's Consulting Firm</h3>
                     <p class="subtitle">Scaling without employees</p>
@@ -71,7 +71,7 @@
                         <span class="tag">Consulting</span>
                         <span class="tag">Freedom</span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -82,22 +82,22 @@
             <div class="featured-courses-preview">
                 <div class="course-preview-card">
                     <div class="course-img">
-                        <img src="https://source.unsplash.com/random/600x400/?business" alt="Business Course">
+                        <img src="public/images/My project.png" alt="Business Course">
                     </div>
                     <div class="course-content">
                         <h3>Solopreneur Business Foundations</h3>
                         <p>Learn how to create a solid foundation for your solo business venture.</p>
-                        <a href="/courses" class="btn-secondary">View Course</a>
+                        <a href="/course-detail" class="btn-secondary">View Course</a>
                     </div>
                 </div>
                 <div class="course-preview-card">
                     <div class="course-img">
-                        <img src="https://source.unsplash.com/random/600x400/?marketing" alt="Marketing Course">
+                        <img src="images/Untitled (1).jpeg" alt="Marketing Course">
                     </div>
                     <div class="course-content">
                         <h3>Digital Marketing Essentials</h3>
                         <p>Master the fundamentals of digital marketing to grow your solo business.</p>
-                        <a href="/courses" class="btn-secondary">View Course</a>
+                        <a href="/course-detail" class="btn-secondary">View Course</a>
                     </div>
                 </div>
             </div>
@@ -132,17 +132,44 @@
 
     <section id="signup">
         <div class="container">
-            <h2>Start Your Solopreneur Journey Today</h2>
-            <p>Join our community and get access to exclusive resources.</p>
-            <form class="signup-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <button type="submit" class="btn-primary">Get Started</button>
-            </form>
+            <div class="signup-card">
+                <h2>Start Your Solopreneur Journey Today</h2>
+                <p>Join our community and get access to exclusive resources.</p>
+                <form class="signup-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Profile</label>
+                        <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+                    <div class="form-group">
+                        <label for="businessType">Business Type</label>
+                        <select id="businessType" required>
+                            <option value="" disabled selected>Select your business type</option>
+                            <option value="service">Service-based</option>
+                            <option value="product">Product-based</option>
+                            <option value="content">Content Creator</option>
+                            <option value="tech">Tech/SaaS</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Tell us about your solopreneur journey</label>
+                        <textarea id="description" placeholder="Share your goals, challenges, or what you hope to achieve..." rows="4"></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" checked>
+                        <label for="newsletter">Subscribe to our newsletter for exclusive tips and resources</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Join the Community</button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -164,7 +191,7 @@
         <div class="chat-toggle" id="chatToggle">💬</div>
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
-                <img src="https://source.unsplash.com/random/100x100/?robot" alt="AI Assistant">
+                <img src="images/Untitled (1).jpeg" alt="AI Assistant">
                 <h4>Solopren AI Assistant</h4>
             </div>
             <div class="chat-messages" id="chatMessages">

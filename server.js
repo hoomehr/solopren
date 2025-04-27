@@ -132,17 +132,24 @@ app.post('/api/chat', (req, res) => {
   });
 });
 
-// Serve the main index.html for the root route
+// Serve HTML pages
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Serve the courses.html for the /courses route
 app.get('/courses', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'courses.html'));
 });
 
-// Handle 404 - serve index.html for client-side routing
+app.get('/course-detail', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'course-detail.html'));
+});
+
+app.get('/story-detail', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'story-detail.html'));
+});
+
+// Handle all other routes by serving index.html
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

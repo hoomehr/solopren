@@ -6,6 +6,8 @@ Solopren is a full-stack web application designed to help individuals become suc
 
 - **Modern, Responsive Design**: Clean, light-themed interface with black cards and glowing effects
 - **Standalone Courses Page**: Browse, filter, and paginate through available courses
+- **Course & Story Detail Pages**: Dedicated pages for in-depth course information and success stories
+- **Stylish Signup Section**: Black card with rounded corners and outer glow shadows for user registration
 - **AI Assistant Integration**: Gemini AI-powered chat assistant to help solopreneurs
 - **Full-Stack Architecture**: Express.js backend with API endpoints and MongoDB integration
 - **Interactive UI**: Smooth animations, transitions, and user-friendly interface
@@ -34,13 +36,23 @@ solopren/
 ├── public/                  # Frontend assets
 │   ├── css/                 # CSS stylesheets
 │   ├── js/                  # JavaScript files
+│   │   ├── script.js        # Main JavaScript file
+│   │   ├── courses.js       # Courses page functionality
+│   │   ├── course-detail.js # Course detail page functionality
+│   │   └── story-detail.js  # Story detail page functionality
 │   ├── images/              # Image assets
 │   ├── index.html           # Homepage
-│   └── courses.html         # Courses page
+│   ├── courses.html         # Courses page
+│   ├── course-detail.html   # Course detail page
+│   └── story-detail.html    # Story detail page
 ├── server/                  # Backend code
 │   ├── models/              # MongoDB models
+│   │   ├── Course.js        # Course model
+│   │   └── User.js          # User model
 │   ├── controllers/         # Route controllers
+│   │   └── courseController.js # Course controller
 │   ├── routes/              # API routes
+│   │   └── courseRoutes.js  # Course routes
 │   └── config/              # Configuration files
 ├── server.js                # Express server setup
 ├── package.json             # Project dependencies
@@ -72,6 +84,13 @@ solopren/
 - `GET /api/courses` - Get all courses with optional filtering and pagination
 - `GET /api/courses/:id` - Get a specific course by ID
 - `POST /api/chat` - Send a message to the AI assistant
+
+## Pages
+
+- `/` - Homepage with featured courses and success stories
+- `/courses` - Browse and filter all available courses
+- `/course-detail` - View detailed information about a specific course
+- `/story-detail` - Read full success stories from solopreneurs
 
 ## Future Enhancements
 

@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add click events to course cards
         courseCards.forEach(card => {
             card.addEventListener('click', () => {
-                // In a full implementation, this would navigate to the course detail page
-                console.log('Course clicked:', card.querySelector('h3').textContent);
+                // Navigate to the course detail page
+                window.location.href = '/course-detail';
             });
         });
         
@@ -145,8 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Add click event
                 courseCard.addEventListener('click', () => {
-                    // In a full implementation, this would navigate to the course detail page
-                    console.log('Course clicked:', course.title);
+                    // Navigate to the course detail page
+                    window.location.href = '/course-detail';
                 });
             });
         } else if (courses && courses.length === 0) {
